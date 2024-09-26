@@ -1,0 +1,34 @@
+Create empty solution :
+dotnet new sln
+
+dotnet new webapi -o API  -controllers
+dotnet new classlib -o Core
+dotnet new classlib -o Infrastructure
+
+dotnet sln add API 
+dotnet sln add Core 
+dotnet sln add Infrastructure 
+
+
+Add reference 
+API -->Infrastructure-->Core
+ 
+cd API
+dotnet add reference ../Infrastructure
+cd ..
+cd Infrastructure
+dotnet add reference ../Core
+
+
+dotnet restore
+dotnet build
+
+----------
+
+for global EF:install in API Project
+dotnet tool install --global dotnet-ef --version 8.0.8
+
+then back to main project and command:
+dotnet ef migrations add InitialCreate -s API -p Infrastructure
+
+
