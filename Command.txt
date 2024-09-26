@@ -31,4 +31,7 @@ dotnet tool install --global dotnet-ef --version 8.0.8
 then back to main project and command:
 dotnet ef migrations add InitialCreate -s API -p Infrastructure
 
+For seed data :
+dotnet ef database drop -p Infrastructure -s API
+
 
